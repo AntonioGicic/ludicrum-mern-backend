@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Ludicrum - app for finding and sharing public events",
   "main": "index.js",
-  "proxy": "https://ludicrum-mern.onrender.com",
   "scripts": {
     "start": "node server",
     "dev": "nodemon server",
