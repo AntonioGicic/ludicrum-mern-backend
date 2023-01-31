@@ -1,3 +1,4 @@
+{
   "name": "ludicrum",
   "version": "1.0.0",
   "description": "Ludicrum - app for finding and sharing public events",
@@ -7,7 +8,7 @@
     "dev": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "proxy": "https://ludicrum-mern.onrender.com" 
+  "proxy": "https://ludicrum-mern.onrender.com", 
   "author": "Antonio Gičić",
   "license": "ISC",
   "dependencies": {
@@ -21,3 +22,4 @@
     "nodemailer": "^6.8.0",
     "nodemon": "^2.0.20"
   }
+} 
