@@ -50,6 +50,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/dogadaji', async (req, res) => { 
+    try {
     const { city, date, category } = req.query;
     console.log(req.query);
     const query = {};
@@ -69,9 +70,14 @@ app.get('/dogadaji', async (req, res) => {
         query.published = true;
         const events = await Event.find(query).sort('-createdAt');
         res.json(events);
+    } 
+}catch (error) {
+        console.log(error);
+    }
 });
 
 app.get('/dogadaji/:id', async (req, res) => {
+    try {
     console.log(req.params);
     try {
         const allCookies = req.cookies;
@@ -87,6 +93,9 @@ app.get('/dogadaji/:id', async (req, res) => {
         console.log(error);
         res.redirect('/');
     }
+} catch (error) {
+    console.log(error)
+}
 });
 
 app.post('/dogadaji/:id/reported', async (req, res) => {
