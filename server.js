@@ -51,6 +51,7 @@ app.get('/', (req, res) => {
 
 app.get('/dogadaji', async (req, res) => {
     const { city, date, category } = req.query;
+    console.log(req.query);
     const query = {};
     if ((date == "" || date == undefined) && (city == "" || city == undefined) && (category == "" || category == undefined)) {
         const events = await Event.find({ published: 'true' }).sort('-createdAt').limit(10);
@@ -72,6 +73,7 @@ app.get('/dogadaji', async (req, res) => {
 });
 
 app.get('/dogadaji/:id', async (req, res) => {
+    console.log(req.params);
     try {
         const allCookies = req.cookies;
         const { id } = req.params;
