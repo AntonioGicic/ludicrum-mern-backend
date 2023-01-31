@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/dogadaji', async (req, res) => { 
-    try{
+    try {
     const { city, date, category } = req.query;
     console.log(req.query);
     const query = {};
@@ -70,9 +70,8 @@ app.get('/dogadaji', async (req, res) => {
         query.published = true;
         const events = await Event.find(query).sort('-createdAt');
         res.json(events);
-    }
-        catch (error){
-        console.log(error)}
+    } catch (error){
+        console.log(error)
     }
 });
 
