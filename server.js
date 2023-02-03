@@ -84,8 +84,7 @@ app.get('/dogadaji/:id', async (req, res) => {
         }
         res.json(dogadaj);
     } catch (error) {
-        console.log(error);
-        res.redirect('/');
+        res.send(error);
     }
 });
 
