@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
     }
 });
 
-app.get('/dogadaji', async (req, res) => {
+app.get('/api/dogadaji', async (req, res) => {
     const { city, date, category } = req.query;
     const query = {};
     if ((!date) && (!city) && (!category)) {
@@ -73,7 +73,7 @@ app.get('/dogadaji', async (req, res) => {
     }
 });
 
-app.get('/dogadaji/:id', async (req, res) => {
+app.get('/api/dogadaji/:id', async (req, res) => {
     try {
         const allCookies = req.cookies;
         const { id } = req.params;
