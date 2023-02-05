@@ -28,9 +28,6 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.json())
 
-//app set
-app.set('views', path.join(__dirname, '/views'));
-
 //cron job
 cron.schedule('* * 1 * * *', async () => {
     try {
@@ -41,6 +38,13 @@ cron.schedule('* * 1 * * *', async () => {
         console.log('Nažalost došlo je do pogreške.', error);
     }
 });
+
+if (process.env.NODE_ENV === 'production') {
+    //*Set static folder up in production
+    app.use(express.static('../frontend/build'));
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')));
+}
 
 //API-s
 // app.get('/', (req, res) => {
