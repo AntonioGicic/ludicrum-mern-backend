@@ -4,9 +4,15 @@
   "description": "Ludicrum - app for finding and sharing public events",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run 
+       client\"",
+    "render-postbuild": "NPM_CONFIG_PRODUCTION=false 
+      npm install --prefix client && npm run build -- 
+      prefix client"
   },
   "author": "Antonio Gičić",
   "license": "ISC",
